@@ -1,7 +1,6 @@
 package test;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
@@ -16,7 +15,7 @@ public class AccountTest {
 	}
 	
 	@Test
-	public void testGetBalance() throws Exception {
+	public void testGetBalance() throws Exception { // 잔고 조회 
 		Account account = new Account(10000);
 		assertEquals(10000, account.getBalance());
 		
