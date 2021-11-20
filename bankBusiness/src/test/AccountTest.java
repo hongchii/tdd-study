@@ -1,5 +1,8 @@
 package test;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
+
 import org.junit.Test;
 
 import main.Account;
@@ -8,25 +11,22 @@ public class AccountTest {
 	
 	@Test
 	public void testAccount() throws Exception {
-		Account account = new Account(); // 계좌를 생성한다.
-	/*	if ( account == null) { // 계좌가 정상적으로 생성됐는지 확인.
-			throw new Exception("계좌생성 실패"); // 실패시 Exception
-			// 메서드 실행 시 어떤 문제나 메시지가 발생하지 않으면 계좌생성 테스트가 성공한 것으로 간주함.
-			
-		}*/
+		Account account = new Account(10000); // 계좌를 생성한다.
+	
 	}
-	/*
-	public static void main(String[] args) {
-		AccountTest test = new AccountTest();
-		try {
-			test.testAccount(); // 테스트 케이스 실행
-		} catch (Exception e) {
-			System.out.println("실패");
-		} 
-		System.out.println("성공");
+	
+	@Test
+	public void testGetBalance() throws Exception {
+		Account account = new Account(10000);
+		assertEquals(10000, account.getBalance());
+		
+		account = new Account(1000);
+		assertEquals(1000, account.getBalance());
+		
+		account = new Account(0);
+		assertEquals(0, account.getBalance());
 	}
-	*/
-}
+}	
 
 
 /*
