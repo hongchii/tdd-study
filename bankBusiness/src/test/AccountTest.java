@@ -1,8 +1,10 @@
 package test;
 
+import main.Account;
+
 public class AccountTest {
 
-	public void testAccount() {
+	public void testAccount() throws Exception {
 		Account account = new Account(); // 계좌를 생성한다.
 		if ( account == null) { // 계좌가 정상적으로 생성됐는지 확인.
 			throw new Exception("계좌생성 실패"); // 실패시 Exception
@@ -13,7 +15,12 @@ public class AccountTest {
 	
 	public static void main(String[] args) {
 		AccountTest test = new AccountTest();
-		test.testAccount(); // 테스트 케이스 실행
+		try {
+			test.testAccount(); // 테스트 케이스 실행
+		} catch (Exception e) {
+			System.out.println("실패");
+		} 
+		System.out.println("성공");
 	}
 }
 
@@ -29,3 +36,9 @@ public class AccountTest {
 클래스 이름 Account
 기능 잔고 조회, 입금, 출금. 금액은 원 단위 
 */
+
+/*
+첫번째. 응답 : 계좌 생성 메서드 구현
+- 계좌 생성 테스트 케이스를 통과하는 코드를 작성한다.
+ */
+ 
