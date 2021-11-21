@@ -2,21 +2,28 @@ package test;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import main.Account;
 
 public class AccountTest {
 	
+	private Account account;
+
 	@Test
 	public void testAccount() throws Exception {
-		Account account = new Account(10000); // 계좌를 생성한다.
+		setup();
 	
 	}
 	
+	@Before // @Test 케이스가 실행되기 전에 먼저 실행됨. 
+	public void setup() {
+		account = new Account(10000);
+	}
+	
 	@Test
-	public void testGetBalance() throws Exception { // 잔고 조회 
-		Account account = new Account(10000);
+	public void testGetBalance() throws Exception { // 잔고 조회 		
 		assertEquals(10000, account.getBalance());
 		
 		account = new Account(1000);
@@ -24,6 +31,18 @@ public class AccountTest {
 		
 		account = new Account(0);
 		assertEquals(0, account.getBalance());
+	}
+	
+	@Test
+	public void testDeposit() throws Exception {	
+		account.deposit(1000);
+		assertEquals(11000, account.getBalance());
+	}
+	
+	@Test
+	public void testWithdraw() throws Exception {
+		account.withdraw(1000);
+		assertEquals(9000, account.getBalance());
 	}
 }	
 
