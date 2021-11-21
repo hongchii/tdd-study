@@ -156,12 +156,12 @@ public class Account {
         this.balance = money;
     }
     
-    public int get Balance() {
+    public int getBalance() {
         return this.balance;
     }
     
     public void deposit(int money) {
-    this.balance += money;
+        this.balance += money;
     }
     
     public void withdraw(int money){
